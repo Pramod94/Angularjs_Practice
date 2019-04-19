@@ -1,0 +1,47 @@
+<html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+    <div ng-app="myapp" ng-controller="mycontrol">
+
+        <h2>Practice session - day 1</h2>
+
+        Email : <input type="email" ng-model="uemail">
+
+        <p>Full name : {{fname +" "+lname}} and your email is {{uemail}}</p>
+
+        <ul ng-repeat="x in cars">
+            <li>{{x}}</li>
+        </ul>
+
+        <ol ng-repeat="y in bikes">
+            <li>{{y}}</li>
+        </ol>
+
+        <p>Bike engine is {{bikes.engine}}</p>
+
+
+
+    </div>
+
+    <script>
+
+        var app = angular.module("myapp",[]);
+
+        app.controller("mycontrol",function($scope){
+            $scope.fname = "PMD";
+            $scope.lname = "M";
+
+            $scope.cars = ["Benz","Suzuki","Ford"];
+
+            $scope.bikes = {
+                name : "yamaha",
+                model : "FZ",
+                engine : "160cc"
+            };
+        });
+    
+    </script>
+</body>
+</html>

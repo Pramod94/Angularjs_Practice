@@ -1,0 +1,64 @@
+<html>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <body>
+
+        <div ng-app="myapp" ng-controller="mycontrol">
+
+            <h2>Practice session - day 3</h2>
+
+            <p>Web url is : {{location}}</p>
+
+            <p>Response from service is : {{result}}</p>
+
+            Name : <input type="text" ng-model="name">
+
+            <ul>
+                <li ng-repeat="x in cars | filter : name">{{x}}</li>
+            </ul>
+
+            <p>Changing the name to uppercase : {{name | uppercase}}</p>
+
+            <p>lowercase : {{name | lowercase}}</p>
+
+            <p ng-repeat="x in cars | filter : 'z'">Filter : {{x}}</p>
+
+
+        </div>
+
+        <script>
+
+            var app = angular.module("myapp",[]);
+
+            app.controller("mycontrol",function($scope,$location,$http,$timeout,$interval){
+
+                $scope.name = "";
+
+                $scope.cars = ["Benz","Audi","Ford","Suzuki"];
+
+                $scope.location = $location.absUrl();
+
+                $http.get("https://www.w3schools.com/angular/customers.php")
+                .then(function(response){
+                    $scope.result = response.data;
+                });
+
+                $timeout(function(){
+                    $scope.name="Audi";
+                },2000);
+
+                $interval(function(){
+                    
+                    $scope.name=$scope.cars[2];
+                    
+                },5000);
+
+
+            });
+
+
+        
+        </script>
+        
+    </body>
+</html>

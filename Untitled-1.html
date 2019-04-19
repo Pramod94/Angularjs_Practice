@@ -1,0 +1,23 @@
+<html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+
+    <h2>Welcome to Angular JS</h2>
+
+    <div ng-app="">
+        
+        Name : <input type="text" ng-model="name">
+        <p>Hello <span ng-bind="name"></span></p>
+        
+        <h2>Expressions</h2>
+
+        <p>Value of 5 * 5 is {{5 * 5}}</p>
+
+        <input type="text" placeholder="enter the color" style="background-color:{{color}}" ng-model="color">
+
+        
+    </div>
+</body>
+</html>

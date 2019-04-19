@@ -1,0 +1,64 @@
+<html>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<style>
+
+    input.ng-dirty{
+
+        background-color: aquamarine;
+    }
+
+    form.ng-valid{
+        background-color: coral;
+    }
+
+</style>
+
+    <body>
+        
+        <div ng-app="myapp" ng-controller="mycontrol">
+
+            <h2>Practice session - day 2</h2>
+
+            <form name="uform">
+            Checking states : <input name="uinput" type="text" ng-model="states" required>            
+
+            <p>Valid : {{uform.uinput.$valid}}</p>
+            <p>Touched : {{uform.uinput.$touched}}</p>
+            <p>Modified : {{uform.uinput.$dirty}}</p>
+
+            </form>
+
+            Name : <input type="text" ng-model="uname">
+            City : <input type="text" ng-model="ucity"> <br>
+
+            <p>Hello {{uname}}, you are from {{ucity}}</p>
+
+            <p>Original details are :{{details()}} {{origin[1]}}</p>
+
+        </div>
+
+        <script>
+
+            var app = angular.module("myapp", []);
+
+            app.controller("mycontrol",function($scope){
+
+                $scope.uname = "PMD";
+                $scope.ucity = "Bangalore";
+
+                $scope.origin = ["hey"];
+
+                $scope.details = function(){
+
+                    $scope.apush = $scope.uname +" "+ $scope.ucity;
+                    $scope.origin.push($scope.apush);
+
+                };
+
+            });
+        
+        </script>
+    </body>
+</html>

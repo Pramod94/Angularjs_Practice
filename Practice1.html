@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    
+    <style>
+        span.ng-invalid{
+            color: red;
+        }
+    </style>
+</head>
+<body ng-app="myApp" ng-controller="myControl">
+    <form action="" name="myForm">
+        <div>
+        Name : <input type="text" ng-model="uname">
+        Email : <input type="email" name="userEmail" ng-model="uemail" required>
+        <span id="us" ng-show="myForm.userEmail.$touched && myForm.userEmail.$invalid">Enter email</span>
+    </div>
+    </form>
+    
+    
+    <script>
+        var app = angular.module("myApp",[]);
+        app.controller("myControl",function($scope){
+
+        });
+    </script>
+</body>
+</html>

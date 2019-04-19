@@ -1,0 +1,51 @@
+<html ng-app="myapp">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular-route.min.js"></script>
+        <script>
+            var app = angular.module("myapp",["ngRoute"]);
+
+app.config(function($routeProvider){
+
+    $routeProvider
+    .when("/", {
+        templateUrl : "Untitled-28-route1.html",
+        controller : "mainControl"
+    })
+    .when("/:countryName",{
+        templateUrl : "Untitled-28-route2.html",
+        controller : "routeControl"
+    })
+    .otherwise({
+        redirectTo : "/"
+    });
+    
+});
+
+app.controller("mainControl",function($scope,$http){
+$http.get("countries.json").then(function(response){
+    $scope.res = response.data;
+})
+});
+
+app.controller("routeControl",function($scope,$routeParams,$http){
+$scope.name = $routeParams.countryName;
+console.log("Got the $routeParams");
+
+$http.get("countries.json").then(function(response){
+   
+    $scope.cdetails = response.data.filter(function(entry){
+       return entry.name === $scope.cname;
+    })[0];
+});
+
+
+});
+        </script>
+    </head>
+    <body>
+        <h3>Routing</h3>
+        
+        <div class="ng-view"></div>
+    </body>
+</html>

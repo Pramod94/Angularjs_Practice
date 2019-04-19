@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body ng-app="myApp">
+    <div ng-controller="myControl">
+        Multiplication:
+        <input type="text" ng-model="value1"> X <input type="text" ng-model="value2"> <br>
+
+        <p>Result : {{value1 * value2}}</p>
+
+        <ul>
+            <li ng-repeat="x in myAry">{{x}}</li>
+        </ul>
+
+        
+        <ul>
+            <li ng-repeat="x in myary33 | limitTo : 3 : 1 ">{{x}}</li>
+        </ul>
+
+        <select ng-model="selection" ng-options="x for x in myary33">Select</select>
+
+        <p>Your Seletion is {{selection}}</p>
+
+        <h5>{{val}}</h5>
+
+
+    </div>
+
+    <my-Directive></my-Directive>
+    <div my-Directive></div>
+
+
+    <div>
+        <!-- Evaluating $scope -->
+
+        <p>Here it will access rootScope variable age {{age}} </p>
+
+        <p ng-controller="sCtrl"> Scope in sCtrl is used, age : {{age}}</p>
+
+        <div ng-controller="sCtrl">
+            <ul>
+                <li ng-repeat="x in result">{{x.Name +' is lives in '+ x.City}}</li>
+            </ul>
+
+            <h4>Url is : {{url}}</h4>
+
+            <h5>{{values}}</h5>
+        </div>
+
+    </div>
+
+    <script>
+        var app = angular.module("myApp", []);
+
+        app.controller("myControl", function ($scope,$timeout) {
+            $scope.value1 = 2;
+            $scope.value2 = 2;
+
+            var ary = [1, 2, 'its 3', , 4];
+            $scope.myAry = ary;
+            
+         $scope.myary33 = ['Hey',3,'Hello','Limited'];
+
+         $timeout(function(){
+            $scope.val = "gets value after 3 sec using $timeout";
+         },3000);
+
+
+        });
+
+
+        app.directive("myDirective", function () {
+            return {
+                restrict: "A",
+                template: "<h2>Inside the directive</h2>"
+            };
+        });
+
+
+
+        //********************************************************//
+
+        app.run(function ($rootScope) {
+
+            $rootScope.age = 33;
+
+        });
+
+        app.controller("sCtrl", function ($scope,$http,$location,$timeout) {
+
+            $scope.age = 44;
+
+            $http({
+                method : 'GET',
+                url : "https://www.w3schools.com/angular/customers.php"
+            }).then(function(response){
+                $scope.result = response.data.records;
+            });
+
+            $scope.url = $location.absUrl();
+
+            $timeout(function(){
+                $scope.values = "Value assigned after 2 seconds using $timeout";
+            },2000);
+
+           
+        });
+
+    </script>
+</body>
+
+</html>

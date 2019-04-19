@@ -1,0 +1,34 @@
+<html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+    <div ng-app="myapp" ng-controller="mycontrol">
+
+        Name : <input ng-model="fname">
+        Age  : <input ng-model="age">
+
+        <p>Hello {{fname}} your age is {{age}} and initial will always be {{lname}}</p>
+
+        <p>Your fullname is <b>{{fullname()}}</b></p>
+    </div>
+
+    <script> 
+    
+    var app = angular.module('myapp',[]);
+
+    app.controller('mycontrol',function($scope){
+        $scope.fname = "PMD";
+        $scope.age = 24;
+        $scope.lname = "M";
+        $scope.fullname = function(){
+           return $scope.fname +" " + $scope.lname;
+        };
+
+    });
+
+
+
+    </script>
+</body>
+</html>

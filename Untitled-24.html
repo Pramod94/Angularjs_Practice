@@ -1,0 +1,41 @@
+
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="Untitled-24.js"></script>
+</head>
+
+    <body>
+        <div ng-app="myapp" ng-controller="mycontrol">
+
+            <h3>Angular table</h3>
+
+            Search <input type="text" ng-model="usearch"><br><br>
+
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Country</th>
+                </tr>
+                <tr ng-repeat="x in res | filter:usearch | orderBy:'-Name'">
+                    <td>{{x.Name}}</td>
+                    <td>{{x.Country}}</td>
+                </tr>
+            </table>
+<br><br>
+            <table>
+                <tr>
+                        <th><a href="" ng-click="usort='Name';reverse=!reverse">Name</a></th>
+                        <th><a href="" ng-click="usort='Country';reverse=!reverse">Country</a></th>
+                </tr>
+
+                <tr ng-repeat="x in res | orderBy:usort:reverse">
+                    <td>{{x.Name}}</td>
+                    <td>{{x.Country}}</td>
+                </tr>
+            </table>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,162 @@
+<html>
+    <head>
+        <style>
+            .link{
+                background-color: yellowgreen;
+                padding: 40px 25px;
+                text-align: center;
+                font-size:30px;
+                color: blue;
+                margin :10px;
+                text-decoration : none;
+                text-align: center;
+                display:block;
+                margin:auto;
+            }
+
+            a:hover{
+                background-color: yellow;
+                text-decoration:underline;
+            }
+
+           
+
+            .box{
+                background-color: lightblue;
+                padding: 20px;
+                margin: 40px;
+                border: 5px solid goldenrod;
+                height: 100px;
+                width: 200px;
+                border-style: dashed;
+                border-radius: 20px;
+                margin: auto;
+            }
+
+
+            #list{
+                background-color: lightcoral;
+                padding: 30px;
+                border-style:ridge;
+                width: 800px;
+            }
+
+            /* li{
+                background-color: aqua;
+                padding: 5px;
+                margin-left: 20px;
+                width: 400px;
+                display: inline;
+            } */
+
+            /* .nav{
+                background-color:lightgray;
+                display: block;
+                padding: 15px 25px;
+                text-align:left;
+                text-decoration: none;
+                text-align: center;
+                color:black;
+                float: left;
+
+            } */
+
+            /* .ulist{
+                list-style-type:none;
+                width: 500px;
+                position:sticky;
+                top: 0px;
+            } */
+            
+
+            .nav:hover {
+                background-color: lightseagreen;
+                color:white;
+                text-decoration: none;
+            }
+
+
+            #pos{
+                position: -webkit-sticky;
+                position:sticky;
+                top: 0px;
+            }
+
+            div.flow{
+                overflow: auto;
+                width: 300px;
+                height: 100px;
+                position:fixed;
+                right: 150px;
+                top: 300px;
+            }
+
+            div.pseudo::first-letter{
+                font-size: 40px;
+                color: brown;
+                background-color: yellowgreen;
+            }
+        </style>
+    </head>
+
+    <body>
+            
+
+                <ul class="ulist">
+                        <li><a class="nav" href="https://www.google.com" target="_blank">Home</a></li>
+                        <li><a class="nav" href="">News</a></li>
+                        <li><a class="nav" href="">Contact</a></li>
+                        <li><a class="nav" href="">About</a></li>
+                    </ul>
+
+
+        <a class="link" href="https://www.google.com" target="_blank">Google</a>
+        <br><br>
+
+        <div class="box">
+            Here is an example of box model
+
+            <p>Using Sudo class</p>
+        </div>
+
+        <ol id="list">
+            <li>Bike</li>
+            <li>Car</li>
+            <li>Boat</li>
+        </ol>
+
+        <br> <br>  <br><br>
+        
+        <div class="flow">
+                You can use the overflow property when you want to have better control of the layout.
+                 The overflow property specifies what happens if content overflows an element's box.
+                 Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo,
+                 maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te,
+                  id agam omnis evertitur eum. Affert laboramus repudiandae nec et. 
+                 Inciderint efficiantur his ad. Eum no molestiae voluptatibus.
+                 Some text to enable scrolling.. 
+                Lorem ipsum dolor sit amet, 
+                illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo.
+                 Atqui causae gloriatur ius te, id agam omnis evertitur eum. 
+                 Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. 
+                 Eum no molestiae voluptatibus.
+        </div>
+
+        <br> <br>  <br><br>
+
+        <div class="pseudo">
+                You can use the overflow property when you want to have better control of the layout.
+                 The overflow property specifies what happens if content overflows an element's box.
+                 Some text to enable scrolling.. Lorem ipsum dolor sit amet, illum definitiones no quo,
+                 maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te,
+                  id agam omnis evertitur eum. Affert laboramus repudiandae nec et. 
+                 Inciderint efficiantur his ad. Eum no molestiae voluptatibus.
+                 Some text to enable scrolling.. 
+                Lorem ipsum dolor sit amet, 
+                illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo.
+                 Atqui causae gloriatur ius te, id agam omnis evertitur eum. 
+                 Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. 
+                 Eum no molestiae voluptatibus.
+        </div>
+    </body>
+</html>

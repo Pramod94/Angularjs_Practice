@@ -1,0 +1,55 @@
+<html>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    
+    <body>
+
+        <div ng-app="myapp" ng-controller="mycontrol">
+
+            <h2>Practice session</h2>
+
+            <a href="#/!">Main</a>
+            <a href="#!bike">Green</a>
+            <a href="#!car">Red</a>
+
+        </div>
+
+        <div ng-view></div>
+        <script>
+        
+            var app = angular.module("mycontrol",["ng-route"]);
+
+          app.config(function($routeProvider){
+              $routeProvider
+              .when("/",{
+                  templateUrl : ""
+                  
+              })
+              .when("/bike",{
+                  templateUrl : "",
+                  template : "<h3>U have selected bike</h3>",
+                  controller : "bikecon"
+
+              })
+              .when("/car",{
+                  templateUrl : "",
+                  controller : "carcon"
+              })
+              .otherwise({
+                  template : "<h3>Nothing selected</h3>"
+              });
+          });
+
+          app.controller("bikecon",function($scope){
+              $scope.ubike = "You have selected Suzuki gixer 160cc"
+          });
+
+          app.controller("carcon",function($scope){
+              $scope.ucar = "You have selected Benz"
+          });
+
+        </script>
+    </body>
+</html>

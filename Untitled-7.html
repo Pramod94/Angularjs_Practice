@@ -1,0 +1,56 @@
+<html>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+
+        <style>
+
+                table , tr,th,td {
+                border : 2px solid blue;
+                border-collapse: collapse;
+                padding: 10px;
+                }
+                
+        </style>
+
+    <body>
+
+        <div ng-app="myapp" ng-controller="mycontrol">
+
+            <h2>Creating table in Angular</h2>
+
+            <table>
+                <caption>Customer records pulled form JSON file</caption>
+                <tr>
+                        <th>Count</th>
+                        <th>Names</th>
+                        <th>City</th>
+                        <th>Country</th>
+                </tr>
+                <tr ng-repeat="x in myarray | orderBy : 'Country'">
+                    <td>{{$index + 1}}</td>
+                    <td>{{x.Name}}</td>
+                    <td>{{x.City | uppercase}}</td>
+                    <td>{{x.Country}}</td>
+                </tr>
+            </table>
+
+        </div>
+
+        <script>
+        
+            var app = angular.module("myapp",[]);
+
+            app.controller("mycontrol", function($scope,$http){
+
+                $http.get("https://www.w3schools.com/angular/customers.php")
+                .then (function(response){
+                   $scope.myarray = response.data.records;
+                });
+
+            });
+
+        </script>
+
+    </body>
+
+</html>

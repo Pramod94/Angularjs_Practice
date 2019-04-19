@@ -1,0 +1,38 @@
+<html>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+        <body>
+            <div ng-app="myapp" ng-controller="mycontrol">
+
+                    <h2>Session 4</h2>
+
+                    <select ng-model="sname" ng-options="x for x in names"></select>
+
+                    <p>You have selected : {{sname}}</p>
+
+                    <select ng-model="ubikes" ng-options="y.name for (x,y) in bikes"></select>
+                    <p>You have selected {{ubikes.name}} having engine capacity {{ubikes.engine}}</p>
+
+            </div>
+
+            <script>
+            
+            var app = angular.module("myapp",[]);
+
+            app.controller("mycontrol",function($scope){
+                $scope.names = ["PMD","Anuj","Yash"];
+                $scope.bikes = {
+                  bone :  {
+                    name : "TVS",
+                    engine : "160cc"},
+                  btwo :
+                {
+                    name : "Suzuki",
+                    engine : "160cc"
+                }};
+            });
+
+
+            </script>
+        </body>
+</html>

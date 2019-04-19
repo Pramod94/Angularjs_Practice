@@ -1,0 +1,56 @@
+
+<html>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <body>
+
+        <div ng-app="myapp" ng-controller="mycontrol">
+            
+            <h2>Using select for creating drop down list</h2>
+
+            <select ng-model="selection" ng-options="x for x in cars"></select>
+
+            <p>You have selected {{selection}}</p>
+
+            <h2>Selection in array of objects</h2>
+
+            <select ng-model ="sbikes" ng-options = "x.bmodel for x in bikes"></select>
+             
+            <p>Selected model belongs to {{sbikes.bname}} company</p>
+
+            <h2>Selction in objects using ng-options because ng-repeat can't handle objects(only strings)</h2>
+
+            <select ng-model ="sguns" ng-options = "y for (x,y) in guns"></select>
+
+            <p>You have selected {{sguns}}</p>
+           
+        </div>
+
+        <script>
+            
+            var app = angular.module("myapp",[]);
+
+            app.controller("mycontrol",function($scope){
+                $scope.cars = ["Benz","Audi","Ford"];
+
+                $scope.bikes = [{bname : "Yamaha", bmodel : "FZS"},
+                                {bname : "TVS Apache", bmodel : "RTR160"}
+                                ];
+
+
+                $scope.guns = {
+
+                    gone : "AKM" ,
+                    gtwo : "SKS" ,
+                    gthree : "AWM",
+                    gfour : "kar98"
+ 
+                }
+            });
+
+
+        </script>
+    
+</body>
+</html>

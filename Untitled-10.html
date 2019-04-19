@@ -1,0 +1,58 @@
+<html>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <style>
+    
+    #fid.ng-valid{
+        background-color: yellow;
+    }
+
+    form.ng-pristine{
+        background-color: lightblue;
+    }
+
+    form.ng-dirty{
+        background-color : lightgreen;
+    }
+
+    span{
+        color: red;
+    }
+
+    </style>
+
+    <body>
+        
+        <div ng-app="myapp"  ng-controller="mycontrol">
+
+            <h2>Form validation</h2>
+
+            <form name="myform">
+
+                FirstName : <input id="fid" name="ufname" ng-model="fname" required>
+
+                <span ng-show="myform.ufname.$touched && myform.ufname.$invalid">Enter your First Name</span> <br> <br>
+
+                LastName : <input name="ulname" ng-model="lname"> <br> <br>
+                Email : <input name="uemail" ng-model="mail" type="email" required>
+
+                <h4>FirstName input valid state is : {{myform.ufname.$valid}}</h4>
+                <h4>Email input valid state is : {{myform.uemail.$valid}}</h4>
+
+
+            </form>
+        </div>
+
+        <script>
+        
+            var app = angular.module("myapp",[]);
+
+            app.controller("mycontrol",function($scope){
+
+            });
+
+        </script>
+
+    </body>
+</html>

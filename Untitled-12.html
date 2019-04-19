@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+</head>
+
+<body ng-app="myapp" ng-controller="mycontrol1">
+    <div >
+        <h2>Concept of Routing in Angular</h2>
+
+        <ul>
+            <li><a href="#!/">main</a> </li>
+            <li><a href="#!Sub1">sub1</a> </li>
+            <li><a href="#!/"></a> </li>
+        </ul>
+    </div>
+
+    <ng-view></ng-view>
+</body>
+
+<script>
+
+    var app = angular.module("myapp", ["ngRoute"]);
+    app.config(function ($routeProvider) {
+        $routeProvider
+            .when("/", {
+                template: "<h3>Its Main</h3>",
+                controller: "mycontrol1"
+            })
+            .when("/Sub1", {
+                template: "<h3>Its sub</h3>",
+                controller: "mycontrol2"
+            })
+            .otherwise({
+                template: "<h3>Nothing to display</h3>"
+            });
+
+    });
+
+    app.controller("mycontrol1", function ($scope) {
+        $scope.display1 = "Controller in Routing";
+    });
+
+    app.controller("mycontrol2", function ($scope) {
+        $scope.display2 = "Using second controller in Routing";
+    });
+
+
+</script>
+
+</html>

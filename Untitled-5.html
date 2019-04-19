@@ -1,0 +1,30 @@
+<html>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <body>
+        
+        <div ng-app="myap" ng-controller="mycontrol">
+            <h2>Using $http service</h2>
+
+            <p>{{result}}</p>
+        </div>
+
+        <script>
+        
+        var app = angular.module('myap',[]);
+
+        app.controller('mycontrol',function($scope,$http){
+
+            $http.get("https://www.google.com/")
+            .then(function(response){
+                $scope.result = response.data;
+            });
+
+        });
+
+
+        </script>
+
+
+    </body>
+</html>

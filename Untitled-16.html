@@ -1,0 +1,47 @@
+<html>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <body>
+
+        <div ng-app="myapp" ng-controller="mycontrol">
+
+            <h3>Practice session - day 4</h3>
+
+            <p>Result is : {{result}}</p>
+
+            <p>Result1 is : {{result1}}</p>
+            
+            <p>Result2 is : {{result2}}</p>
+            
+            <p>Result3 is : {{result3}}</p>
+
+            <p>Overall result is </p>
+
+            <ul ng-repeat="x in result1">
+                <li>Name : {{x.Name}}</li>
+                <li>City : {{x.City}}</li>
+                <li>Country : {{x.Country}}</li>
+            </ul>
+        </div>
+
+        <script>
+
+            var app = angular.module("myapp",[]);
+
+            app.controller("mycontrol",function($scope,$http){
+
+                $http.get("https://www.w3schools.com/angular/customers.php")
+                .then(function(response){
+                    
+                    $scope.result = response.data;
+                    $scope.result1 = response.data.records;
+                    $scope.result2 = response.status;
+                    $socpe.result3 = response.statusText;
+
+                });
+
+            });
+        
+        </script>
+    </body>
+</html>

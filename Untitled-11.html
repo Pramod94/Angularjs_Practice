@@ -1,0 +1,33 @@
+<html>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+        <body>
+
+            <div ng-app="myapp" ng-controller="mycontrol">
+
+                <h3>Angular API</h3>
+
+                <p>Converting and checking</p>
+
+                <p>{{lcase}}</p>
+                <p>{{ucase}}</p>
+                <p>{{sstring}}</p>
+                <p>{{number}}</p>
+
+            </div>
+        </body>
+
+        <script>
+        
+        var app = angular.module("myapp",[]);
+
+        app.controller("mycontrol",function($scope){
+            $scope.string = "Converting the String to";
+            $scope.lcase = angular.lowercase($scope.string);
+            $scope.ucase = angular.uppercase($scope.string);
+            $scope.sstring = angular.isString($scope.string);
+            $scope.number = angular.isNumber($scope.string); 
+        });
+
+        </script>
+</html>

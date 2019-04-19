@@ -1,0 +1,34 @@
+<html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+ 
+    <div ng-app="myapp" ng-controller="mycontrol">
+        <h2>Making use of arrays in $scope object and also using ng-repeat</h2>
+
+        <ul>
+            <li ng-repeat="x in myarray">{{x.name +' '+ x.age}}</li>  
+        </ul>
+
+        <h2>Simple array</h2>
+        <ol>
+            <li ng-repeat="x in cars">{{x}}</li>
+        </ol>
+    </div>
+
+    <script>
+    
+        var app = angular.module('myapp',[]);
+
+        app.controller('mycontrol',function($scope){
+
+            $scope.myarray = [{name : 'PMD', age : 24},
+                              {name : 'Anuj', age : 25}];
+
+            $scope.cars = ["Audi","Benz","Bentley"];
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    </head>
+
+    <body>
+        <div ng-app="myapp" ng-controller="mycontrol">
+
+            <h2>Using $watch and $apply</h2>
+
+            First Name : <input type="text" ng-model="fname"> <br><br>
+
+            Last Name : <input type="text" ng-model="lname"> 
+
+        </div>
+
+        <script>
+            
+           var app = angular.module("myapp",[]);
+           app.controller("mycontrol",function($scope){
+
+               $scope.counter=-1;
+              
+               $scope.$watch("lname",function(newValue,oldValue){
+                $scope.counter++;
+                
+                console.log("New value is :" + newValue);
+                console.log("Old value is :" + oldValue);
+                
+                if($scope.counter == 3){
+                    alert("You can use initial as last name");
+                }else if($scope.counter > 5){
+                    $scope.lname = "M";
+                }
+
+                $scope.apply();
+                   
+               });
+           });
+        
+        </script>
+    </body>
+</html>

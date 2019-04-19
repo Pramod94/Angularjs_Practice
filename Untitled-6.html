@@ -1,0 +1,39 @@
+<html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+
+    <div ng-app="myapp" ng-controller="mycontrol">
+
+        <h2>$http service uses Object as an argument</h2>
+
+        <p ng-repeat = "x in result">{{x.Country}}</p>
+        <p>{{result}}</p>
+
+    </div>
+
+    <script>
+    
+        var app = angular.module("myapp",[]);
+
+        app.controller("mycontrol",function($scope,$http){
+            $http({
+                method : "GET",
+                url : "https://www.w3schools.com/angular/customers.php"
+            })
+            .then(function onSuccess(response){
+                $scope.result = response.data.records; //.records is an array of object 
+            }, function onFailure(response){
+                $scope.result = response.statusText;
+            }, function onError(response){
+                $scope.result = "Something went wrong";   
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>

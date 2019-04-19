@@ -1,0 +1,45 @@
+
+<html>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    
+    <style>
+    
+        form.ng-dirty{
+            background-color: lightblue;
+        }
+
+        input.ng-touched{
+            background-color:lightgreen;
+        }
+    
+    </style>
+    
+    <body>
+
+        <div ng-app="myapp" ng-controller="mycontrol">
+
+            <h2>Practice session</h2>
+
+            <form name="myform" action="ualert()">
+            Name : <input type="text" name="fname" ng-model="uname"> 
+            <span ng-show="myform.fname.$touched && myform.fname.$pristine">Enter your name here</span><br><br>
+            Age : <input type="number" name="fage" ng-model="uage">
+            <span ng-show="myform.fage.$dirty">Make sure you have entered correct age</span><br>
+
+            <input type="submit" value="Submit">
+            </form>
+        </div>
+
+        <script>
+        
+            var app = angular.module("myapp",[]);
+
+            app.controller("mycontrol",function($scope){
+
+
+
+            });
+
+        </script>
+    </body>
+</html>

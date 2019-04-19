@@ -1,0 +1,46 @@
+<html>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+
+    <div ng-app="myapp" ng-controller="mycontrol" ng-init = "fname = 'pramod'">
+
+        <h3>Making use of filter in expression, converting to uppercase </h3>
+
+        <p>{{fname | uppercase}} {{lname}}</p>
+
+        <h3>Sorting array using orderBy filter</h3>
+        <ol>
+            <li ng-repeat = "x in names | orderBy">{{x}}</li>
+        </ol>
+
+        <h3>Using filter for matching subset of array</h3>
+        <ul>
+            <li ng-repeat = "x in names | filter : 'b'">{{x}}</li>
+        </ul>
+
+        Name : <input ng-model = "uname">
+
+        <ul> 
+            <li ng-repeat = "y in uinput | filter : uname">{{y.name +" from " + y.country}}</li>
+        </ul>
+
+
+    </div>
+
+    <script>
+    
+    var app = angular.module('myapp',[]);
+
+    app.controller('mycontrol',function($scope){
+        $scope.lname = "M";
+        $scope.names = ["Benz","Audi","Skoda","Bentley"];
+        $scope.uinput = [{name : 'PMD', country : 'India'},
+                        {name : 'Anuj', country : 'Malasya'}];
+    });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<html>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <body>
+
+        <div ng-app="myapp" ng-controller="mycontrol">
+            
+            <h2>Forms in Angular</h2>
+
+            <form>
+
+                First Name : <input type="text" ng-model="uname.fname"> <br><br>
+
+                Last Name : <input type="text" ng-model="uname.lname"> <br>
+
+                <h3>Hello {{uname.fname}} {{uname.lname}}</h3> <br>
+
+                <button ng-click="ureset()">Reset</button> <br><br>
+
+                Checkbox : <input type="checkbox" ng-model="ucheck">
+
+                <div ng-show="ucheck">
+                    <h2>You have clicked on the Checkbox</h2>
+                </div>
+
+                <h3>Radio buttons</h3>
+                
+                <div>
+                    <input type="radio" ng-model="uradio" value="cars" > Cars
+                    <input type="radio" ng-model="uradio" value="bikes"> Bikes
+                </div>
+            </form>
+
+          <div ng-switch="uradio">
+
+             <div ng-switch-when="cars"> 
+                <h3>You have selected Cars</h3>
+            </div>
+
+            <div ng-switch-when="bikes">
+                <h3>You have selected Bikes</h3>
+            </div>
+
+          </div>
+
+        </div>
+
+        <script>
+
+            var app = angular.module("myapp",[]);
+
+            app.controller("mycontrol",function($scope){
+
+                $scope.names = {fname : "", lname :""};
+
+                $scope.ureset = function(){
+
+                $scope.uname = angular.copy($scope.names);
+                }
+
+            });
+
+        </script>
+    </body>
+</html>

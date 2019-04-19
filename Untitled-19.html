@@ -1,0 +1,38 @@
+<html>
+        <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+       
+            <script src="Untitled-19.js"></script>
+       </head> 
+
+        <body>
+            <div ng-app="myapp" ng-controller="mycontrol">
+
+                <form>
+
+                 <input type="text" ng-model="utext">
+                 <p>Hello {{utext}}</p>
+                 <input type="radio" value="Cars" ng-model="uradio">Cars
+                 <input type="radio" value="Bikes" ng-model="uradio">Bikes
+
+
+                 <p ng-show="uradio">You have selected : {{uradio}}</p>
+
+              </form>
+
+              <div ng-switch="uradio">
+
+                <p ng-switch-when="Cars">Your selection is Car</p>
+
+                <p ng-switch-when="Bikes">Your selection is Bike</p>
+
+              </div>
+
+              <button ng-click="ureset()">Reset</button>
+            </div>
+
+           
+
+        </body>
+</html>

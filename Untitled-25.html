@@ -1,0 +1,36 @@
+
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="Untitled-25.js"></script>
+    </head>
+
+    <body ng-app="myapp">
+        <div ng-controller="mycontrol">
+
+                <p>{{res}}</p>
+
+                <table>
+                    <tr>
+                        <th>City</th>
+                        <th>Country</th>
+                    </tr>
+                    <tr ng-repeat="x in res">
+                        <td>{{x.City}}</td>
+                        <td>{{x.Country}}</td>
+                    </tr>
+                </table>
+
+                <p>Json</p>
+
+<p><img ng-src="http://netghost.narod.ru/gff/sample/images/png/basi0g01.png" width="100px">India</p>
+        </div>
+
+        <div ng-controller="mycontrol1">
+
+            <p ng-repeat="x in res1">{{x.name}}</p>
+
+        </div>
+
+    </body>
+</html>
